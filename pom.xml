@@ -20,7 +20,7 @@
 
     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++项目properties配置++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
     <properties>
-        <java.version>1.7</java.version>
+        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -29,16 +29,23 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>[2.9.5,)</version>
+            <version>[2.9.10.5,)</version>
         </dependency>
 
         <!-- MongoDB -->
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongodb-driver</artifactId>
-            <version>3.5.0</version>
+            <version>3.12.7</version>
             <scope>provided</scope>
         </dependency>
+        
+        <!-- ArangoDB -->
+        <dependency>
+		    <groupId>com.arangodb</groupId>
+		    <artifactId>arangodb-java-driver</artifactId>
+		    <version>6.7.3</version>
+		</dependency>
 
         <!-- junit -->
         <dependency>
@@ -171,9 +178,9 @@
 
     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++scm++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
     <scm>
-        <connection>scm:git:https://github.com/itfsw/QueryBuilder.git</connection>
-        <developerConnection>scm:git:https://github.com/itfsw/QueryBuilder.git</developerConnection>
-        <url>https://github.com/itfsw/QueryBuilder</url>
+        <connection>scm:git:https://github.com/USPA-Technology/QueryBuilder.git</connection>
+        <developerConnection>scm:git:https://github.com/USPA-Technology/QueryBuilder.git</developerConnection>
+        <url>https://github.com/USPA-Technology/QueryBuilder</url>
         <tag>HEAD</tag>
     </scm>
 
