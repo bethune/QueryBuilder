@@ -31,24 +31,24 @@ import java.util.List;
  * ---------------------------------------------------------------------------
  *
  * ---------------------------------------------------------------------------
- * @author: hewei
+ * @authors: hewei
  * @time:2017/10/31 16:37
  * ---------------------------------------------------------------------------
  */
-public class MongodbBuilder extends AbstractBuilder {
+public class MongoDbBuilder extends AbstractBuilder {
 
     /**
-     * 构造函数
+     * constructor
      * @param groupParser
      * @param ruleParsers
      * @param ruleFilters
      */
-    public MongodbBuilder(IGroupParser groupParser, List<IRuleParser> ruleParsers, List<IRuleFilter> ruleFilters) {
+    public MongoDbBuilder(IGroupParser groupParser, List<IRuleParser> ruleParsers, List<IRuleFilter> ruleFilters) {
         super(groupParser, ruleParsers, ruleFilters);
     }
 
     /**
-     * 构建
+     * build query and get result
      * @param query
      * @return
      * @throws IOException

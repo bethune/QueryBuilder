@@ -16,11 +16,11 @@
 
 package com.itfsw.query.builder.support.filter;
 
-import com.itfsw.query.builder.MongodbQueryBuilderFactory;
+import com.itfsw.query.builder.MongoDbQueryBuilderFactory;
 import com.itfsw.query.builder.SqlQueryBuilderFactory;
 import com.itfsw.query.builder.exception.FilterException;
 import com.itfsw.query.builder.other.FileHelper;
-import com.itfsw.query.builder.support.builder.MongodbBuilder;
+import com.itfsw.query.builder.support.builder.MongoDbBuilder;
 import com.itfsw.query.builder.support.builder.SqlBuilder;
 import com.itfsw.query.builder.support.model.result.MongodbQueryResult;
 import com.itfsw.query.builder.support.model.result.SqlQueryResult;
@@ -84,8 +84,8 @@ public class DatetimeConvertFilterTest {
      */
     @Test
     public void testTypeList() throws IOException {
-        MongodbQueryBuilderFactory factory = new MongodbQueryBuilderFactory();
-        MongodbBuilder builder = factory.builder();
+        MongoDbQueryBuilderFactory factory = new MongoDbQueryBuilderFactory();
+        MongoDbBuilder builder = factory.builder();
         String json = FileHelper.getStringFrom("tasks/type-datetime-list.json");
         MongodbQueryResult result = builder.build(json);
 

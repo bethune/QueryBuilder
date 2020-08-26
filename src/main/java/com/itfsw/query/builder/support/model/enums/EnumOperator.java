@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017.
+ * Copyright (c) 2020.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,8 @@ package com.itfsw.query.builder.support.model.enums;
  * ---------------------------------------------------------------------------
  *
  * ---------------------------------------------------------------------------
- * @author: hewei
- * @time:2017/10/31 17:28
+ * @author: hewei, tantrieuf31
+ * @time:2020/08/26 11:26
  * ---------------------------------------------------------------------------
  */
 public enum EnumOperator {
@@ -46,11 +46,10 @@ public enum EnumOperator {
     IS_NULL("is_null"),
     IS_NOT_NULL("is_not_null");
 
-
     private final String value;
 
     /**
-     * 构造函数
+     * Constructor
      * @param value
      */
     EnumOperator(String value) {
@@ -76,7 +75,7 @@ public enum EnumOperator {
     }
 
     /**
-     * 比较
+     * Compare
      * @param value
      * @return
      */

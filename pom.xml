@@ -1,14 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.itfsw</groupId>
+    <groupId>tech.uspa</groupId>
     <artifactId>QueryBuilder</artifactId>
-    <version>1.0.5-SNAPSHOT</version>
+    <version>2.0.0</version>
     <packaging>jar</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
-    <description>Mybatis Generator Plugins</description>
-    <url>https://github.com/itfsw/QueryBuilder</url>
+    <description> Query Builder parser for jQuery QueryBuilder </description>
+    <url>https://github.com/USPA-Technology/QueryBuilder</url>
 
     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ license ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
     <licenses>

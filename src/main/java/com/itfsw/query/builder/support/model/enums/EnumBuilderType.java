@@ -26,5 +26,6 @@ package com.itfsw.query.builder.support.model.enums;
  */
 public enum EnumBuilderType {
     SQL,    // SqlBuilder
-    MONGODB // MongodbBuilder
+    MONGODB, // MongodbBuilder
+    ARANGODB // ArangoDbBuilder
 }

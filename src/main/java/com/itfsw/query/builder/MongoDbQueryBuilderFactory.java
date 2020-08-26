@@ -16,7 +16,7 @@
 
 package com.itfsw.query.builder;
 
-import com.itfsw.query.builder.support.builder.MongodbBuilder;
+import com.itfsw.query.builder.support.builder.MongoDbBuilder;
 import com.itfsw.query.builder.support.parser.AbstractMongodbRuleParser;
 import com.itfsw.query.builder.support.parser.IRuleParser;
 import com.itfsw.query.builder.support.parser.mongodb.*;
@@ -32,12 +32,12 @@ import java.util.List;
  * @time:2017/11/1 18:31
  * ---------------------------------------------------------------------------
  */
-public class MongodbQueryBuilderFactory extends AbstractQueryBuilderFactory {
+public class MongoDbQueryBuilderFactory extends AbstractQueryBuilderFactory {
 
     /**
-     * 构造函数
+     * Constructor
      */
-    public MongodbQueryBuilderFactory() {
+    public MongoDbQueryBuilderFactory() {
         super();
 
         // ---------------------- group parser ----------------------------
@@ -71,13 +71,13 @@ public class MongodbQueryBuilderFactory extends AbstractQueryBuilderFactory {
      * 获取builder
      * @return
      */
-    public MongodbBuilder builder() {
+    public MongoDbBuilder builder() {
         List<IRuleParser> mongodbRuleParsers = new ArrayList<>();
         for (IRuleParser parser : ruleParsers) {
             if (parser instanceof AbstractMongodbRuleParser) {
                 mongodbRuleParsers.add(parser);
             }
         }
-        return new MongodbBuilder(groupParser, mongodbRuleParsers, filters);
+        return new MongoDbBuilder(groupParser, mongodbRuleParsers, filters);
     }
 }

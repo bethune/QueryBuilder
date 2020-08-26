@@ -29,7 +29,7 @@ import java.util.List;
 
 /**
  * ---------------------------------------------------------------------------
- * sql 构造
+ * sql structure
  * ---------------------------------------------------------------------------
  * @author: hewei
  * @time:2017/10/30 15:44
@@ -38,7 +38,7 @@ import java.util.List;
 public class SqlBuilder extends AbstractBuilder {
 
     /**
-     * 构造函数
+     * constructor
      * @param groupParser
      * @param ruleParsers
      * @param ruleFilters
@@ -48,7 +48,7 @@ public class SqlBuilder extends AbstractBuilder {
     }
 
     /**
-     * 构建
+     * build query and get result
      * @param query
      * @return
      * @throws IOException

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017.
+ * Copyright (c) 2020.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,23 +14,44 @@
  * limitations under the License.
  */
 
-package com.itfsw.query.builder.exception;
+package com.itfsw.query.builder.support.model.result;
 
 /**
  * ---------------------------------------------------------------------------
  *
  * ---------------------------------------------------------------------------
- * @author: hewei
- * @time:2017/11/1 11:34
+ * @author: tantrieuf31
+ * @time:2020/08/26 11:15
  * ---------------------------------------------------------------------------
  */
-public class FilterException extends QueryBuilderException {
+public class ArangoDbQueryResult extends AbstractResult {
+    private String query;
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = -3422267810121350136L;
+     * Constructor
+     * @param queryJson
+     * @param query
+     */
+    public ArangoDbQueryResult(String queryJson, String query) {
+        this.queryJson = queryJson;
+        this.query = query;
+    }
 
-	public FilterException(String message) {
-        super(message);
+    /**
+     * Getter method for property <tt>query</tt>.
+     * @return property value of query
+     * @author hewei
+     */
+    @Override
+    public String getQuery() {
+        return query;
+    }
+  
+    /**
+     * to string
+     * @return
+     */
+    @Override
+    public String toString() {
+        return getQuery();
     }
 }

@@ -16,12 +16,12 @@
 
 package com.itfsw.query.builder.exception;
 
-import com.itfsw.query.builder.MongodbQueryBuilderFactory;
+import com.itfsw.query.builder.MongoDbQueryBuilderFactory;
 import com.itfsw.query.builder.SqlQueryBuilderFactory;
 import com.itfsw.query.builder.other.CustomMongodbParser;
 import com.itfsw.query.builder.other.CustomSqlParser;
 import com.itfsw.query.builder.other.FileHelper;
-import com.itfsw.query.builder.support.builder.MongodbBuilder;
+import com.itfsw.query.builder.support.builder.MongoDbBuilder;
 import com.itfsw.query.builder.support.builder.SqlBuilder;
 import com.itfsw.query.builder.support.model.result.MongodbQueryResult;
 import com.itfsw.query.builder.support.model.result.SqlQueryResult;
@@ -73,8 +73,8 @@ public class ParserNotFoundExceptionTest {
      */
     @Test(expected = ParserNotFoundException.class)
     public void testMongodbParserNotFound() throws IOException {
-        MongodbQueryBuilderFactory factory = new MongodbQueryBuilderFactory();
-        MongodbBuilder builder = factory.builder();
+        MongoDbQueryBuilderFactory factory = new MongoDbQueryBuilderFactory();
+        MongoDbBuilder builder = factory.builder();
 
         String json = FileHelper.getStringFrom("tasks/custom-operator.json");
         builder.build(json);
@@ -85,9 +85,9 @@ public class ParserNotFoundExceptionTest {
      */
     @Test
     public void testMongodbParserNotFoundAndAdd() throws IOException {
-        MongodbQueryBuilderFactory factory = new MongodbQueryBuilderFactory();
+        MongoDbQueryBuilderFactory factory = new MongoDbQueryBuilderFactory();
         factory.addRuleParser(new CustomMongodbParser());
-        MongodbBuilder builder = factory.builder();
+        MongoDbBuilder builder = factory.builder();
 
         String json = FileHelper.getStringFrom("tasks/custom-operator.json");
         MongodbQueryResult result = builder.build(json);

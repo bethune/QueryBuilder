@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017.
+ * Copyright (c) 2020.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,23 +14,28 @@
  * limitations under the License.
  */
 
-package com.itfsw.query.builder.exception;
+package com.itfsw.query.builder.support.parser.arangodb;
+
+import com.itfsw.query.builder.support.model.IRule;
+import com.itfsw.query.builder.support.model.enums.EnumOperator;
+import com.itfsw.query.builder.support.model.sql.Operation;
+import com.itfsw.query.builder.support.parser.AbstractSqlRuleParser;
+import com.itfsw.query.builder.support.parser.JsonRuleParser;
 
 /**
  * ---------------------------------------------------------------------------
  *
  * ---------------------------------------------------------------------------
- * @author: hewei
- * @time:2017/11/1 11:34
+ * @author: tantrieuf31
+ * @time:2020/08/25 20:57
  * ---------------------------------------------------------------------------
  */
-public class FilterException extends QueryBuilderException {
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = -3422267810121350136L;
+public class BeginsWithRuleParser extends AbstractSqlRuleParser {
+    public boolean canParse(IRule rule) {
+        return EnumOperator.BEGINS_WITH.equals(rule.getOperator());
+    }
 
-	public FilterException(String message) {
-        super(message);
+    public Operation parse(IRule rule, JsonRuleParser parser) {
+        return new Operation(new StringBuffer(rule.getField()).append(" LIKE \""), rule.getValue() + "%\"");
     }
 }

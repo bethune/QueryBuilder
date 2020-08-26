@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017.
+ * Copyright (c) 2020.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,37 +16,56 @@
 
 package com.itfsw.query.builder;
 
-import com.itfsw.query.builder.config.SqlQueryBuilderConfig;
-import com.itfsw.query.builder.support.builder.SqlBuilder;
-import com.itfsw.query.builder.support.filter.SqlInjectionAttackFilter;
-import com.itfsw.query.builder.support.parser.AbstractSqlRuleParser;
-import com.itfsw.query.builder.support.parser.IRuleParser;
-import com.itfsw.query.builder.support.parser.sql.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import com.itfsw.query.builder.support.builder.ArangoDbBuilder;
+import com.itfsw.query.builder.support.filter.ArangoDbInjectionAttackFilter;
+import com.itfsw.query.builder.support.parser.AbstractSqlRuleParser;
+import com.itfsw.query.builder.support.parser.IRuleParser;
+import com.itfsw.query.builder.support.parser.aql.BeginsWithRuleParser;
+import com.itfsw.query.builder.support.parser.aql.BetweenRuleParser;
+import com.itfsw.query.builder.support.parser.aql.ContainsRuleParser;
+import com.itfsw.query.builder.support.parser.aql.DefaultGroupParser;
+import com.itfsw.query.builder.support.parser.aql.EndsWithRuleParser;
+import com.itfsw.query.builder.support.parser.aql.EqualRuleParser;
+import com.itfsw.query.builder.support.parser.aql.GreaterOrEqualRuleParser;
+import com.itfsw.query.builder.support.parser.aql.GreaterRuleParser;
+import com.itfsw.query.builder.support.parser.aql.InRuleParser;
+import com.itfsw.query.builder.support.parser.aql.IsEmptyRuleParser;
+import com.itfsw.query.builder.support.parser.aql.IsNotEmptyRuleParser;
+import com.itfsw.query.builder.support.parser.aql.IsNotNullRuleParser;
+import com.itfsw.query.builder.support.parser.aql.IsNullRuleParser;
+import com.itfsw.query.builder.support.parser.aql.LessOrEqualRuleParser;
+import com.itfsw.query.builder.support.parser.aql.LessRuleParser;
+import com.itfsw.query.builder.support.parser.aql.NotBeginsWithRuleParser;
+import com.itfsw.query.builder.support.parser.aql.NotBetweenRuleParser;
+import com.itfsw.query.builder.support.parser.aql.NotContainsRuleParser;
+import com.itfsw.query.builder.support.parser.aql.NotEndsWithRuleParser;
+import com.itfsw.query.builder.support.parser.aql.NotEqualRuleParser;
+import com.itfsw.query.builder.support.parser.aql.NotInRuleParser;
+
+
 /**
- * ---------------------------------------------------------------------------
  *
- * ---------------------------------------------------------------------------
- * @author: hewei
- * @time:2017/10/31 17:03
- * ---------------------------------------------------------------------------
+ * ArangoDb Query Builder Factory
+ * 
+ * @author: tantrieuf31
+ * @since: 2020/08/26 11:15
  */
-public class SqlQueryBuilderFactory extends AbstractQueryBuilderFactory {
-    protected SqlQueryBuilderConfig config;   // Configuration
+public class ArangoDbBuilderFactory extends AbstractQueryBuilderFactory {
+
 
     /**
-     * 构造函数
+     * Constructor
      * @param config
      */
-    public SqlQueryBuilderFactory(SqlQueryBuilderConfig config) {
-        super();
-        this.config = config;
+    public ArangoDbBuilderFactory() {
+    	super();
+       
 
         // ------------------------ filter ---------------------------
-        filters.add(new SqlInjectionAttackFilter(config.getDbType()));    // sql 注入
+        filters.add(new ArangoDbInjectionAttackFilter());  // filtering ArangoDb Query Injection
 
         // ------------------------- group parser ----------------------
         groupParser = new DefaultGroupParser();
@@ -54,7 +73,7 @@ public class SqlQueryBuilderFactory extends AbstractQueryBuilderFactory {
         // ---------------------- rule parser ----------------------------
         ruleParsers.add(new EqualRuleParser());
         ruleParsers.add(new NotEqualRuleParser());
-        ruleParsers.add(new INRuleParser());
+        ruleParsers.add(new InRuleParser());
         ruleParsers.add(new NotInRuleParser());
         ruleParsers.add(new LessRuleParser());
         ruleParsers.add(new LessOrEqualRuleParser());
@@ -74,24 +93,19 @@ public class SqlQueryBuilderFactory extends AbstractQueryBuilderFactory {
         ruleParsers.add(new IsNotNullRuleParser());
     }
 
-    /**
-     * Constructor
-     */
-    public SqlQueryBuilderFactory() {
-        this(new SqlQueryBuilderConfig());
-    }
+  
 
     /**
      * get builder
-     * @return
+     * @return ArangoDbBuilder
      */
-    public SqlBuilder builder() {
+    public ArangoDbBuilder builder() {
         List<IRuleParser> sqlRuleParsers = new ArrayList<>();
         for (IRuleParser parser : ruleParsers) {
             if (parser instanceof AbstractSqlRuleParser) {
                 sqlRuleParsers.add(parser);
             }
         }
-        return new SqlBuilder(groupParser, sqlRuleParsers, filters);
+        return new ArangoDbBuilder(groupParser, sqlRuleParsers, filters);
     }
 }

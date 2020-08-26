@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020.
+ * Copyright (c) 2017.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,16 +17,16 @@
 package com.itfsw.query.builder.support.parser;
 
 import com.itfsw.query.builder.support.model.IRule;
-import com.itfsw.query.builder.support.model.sql.Operation;
+import com.itfsw.query.builder.support.model.aql.AqlOperation;
 
 /**
- * Structure Query Language (SQL) Rule Parser
+ * Arango Query Language rule parser
  *
- * @author: hewei, tantrieuf31
+ * @author: tantrieuf31
  * @since:2020/08/26 11:15
  */
-public abstract class AbstractSqlRuleParser implements IRuleParser{
-    /**
+public abstract class AbstractArangoQueryRuleParser implements IRuleParser{
+	 /**
      * Can it be parsed
      * @param rule
      * @return
@@ -39,5 +39,9 @@ public abstract class AbstractSqlRuleParser implements IRuleParser{
      * @param parser
      * @return
      */
-    public abstract Operation parse(IRule rule, JsonRuleParser parser);
+    public abstract AqlOperation parse(IRule rule, JsonRuleParser parser);
+    
+    protected static StringBuffer documentField(String field) {
+		return new StringBuffer(" d.").append(field);
+	}
 }

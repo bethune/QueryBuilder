@@ -31,7 +31,7 @@ public enum EnumCondition {
     private final String value;
 
     /**
-     * 构造函数
+     * Constructor
      * @param value
      */
     EnumCondition(String value) {
@@ -57,7 +57,7 @@ public enum EnumCondition {
     }
 
     /**
-     * 判断相等
+     * compare
      * @param value
      * @return
      */

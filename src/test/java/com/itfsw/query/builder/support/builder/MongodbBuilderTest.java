@@ -16,7 +16,7 @@
 
 package com.itfsw.query.builder.support.builder;
 
-import com.itfsw.query.builder.MongodbQueryBuilderFactory;
+import com.itfsw.query.builder.MongoDbQueryBuilderFactory;
 import com.itfsw.query.builder.other.FileHelper;
 import com.itfsw.query.builder.support.model.result.MongodbQueryResult;
 import com.itfsw.query.builder.support.utils.spring.StringUtils;
@@ -35,11 +35,11 @@ import java.io.IOException;
  * ---------------------------------------------------------------------------
  */
 public class MongodbBuilderTest {
-    private static MongodbBuilder builder;
+    private static MongoDbBuilder builder;
 
     @BeforeClass
     public static void init() {
-        MongodbQueryBuilderFactory factory = new MongodbQueryBuilderFactory();
+        MongoDbQueryBuilderFactory factory = new MongoDbQueryBuilderFactory();
         builder = factory.builder();
     }
 

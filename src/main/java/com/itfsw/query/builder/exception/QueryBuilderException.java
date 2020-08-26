@@ -26,7 +26,12 @@ package com.itfsw.query.builder.exception;
  */
 public class QueryBuilderException extends RuntimeException {
     /**
-     * 构造函数
+	 * 
+	 */
+	private static final long serialVersionUID = -8472868630235393192L;
+
+	/**
+     * constructor
      * @param message
      */
     public QueryBuilderException(String message) {

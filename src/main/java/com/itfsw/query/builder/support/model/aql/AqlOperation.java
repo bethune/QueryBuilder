@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017.
+ * Copyright (c) 2020.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,62 +14,52 @@
  * limitations under the License.
  */
 
-package com.itfsw.query.builder.support.model.enums;
+package com.itfsw.query.builder.support.model.aql;
 
 /**
  * ---------------------------------------------------------------------------
- *
+ * ArangoDB Data Operator
  * ---------------------------------------------------------------------------
- * @author: hewei
- * @time:2017/10/31 18:22
+ * @author: tantrieuf31
+ * @time:2020/08/26 11:15
  * ---------------------------------------------------------------------------
  */
-public enum EnumRuleType {
-    STRING("string"),
-    INTEGER("integer"),
-    DOUBLE("double"),
-    DATE("date"),
-    TIME("time"),
-    DATETIME("datetime"),
-    BOOLEAN("boolean");
-
-    private final String value;
-
+public class AqlOperation {
+    private StringBuffer operate;
+    
     /**
      * Constructor
+     * @param operate
      * @param value
      */
-    EnumRuleType(String value) {
-        this.value = value;
+    public AqlOperation(StringBuffer operate) {
+        this.operate = operate;
     }
-
+    
     /**
-     * Getter method for property <tt>value</tt>.
-     * @return property value of value
-     * @author hewei
-     */
-    public String getValue() {
-        return value;
-    }
-
-    /**
-     * Getter method for property <tt>value</tt>.
-     * @return property value of value
-     * @author hewei
-     */
-    public String value() {
-        return value;
-    }
-
-    /**
-     * compare
+     * Constructor
+     * @param operate
      * @param value
-     * @return
      */
-    public boolean equals(String value) {
-        if (value == null) {
-            return false;
-        }
-        return this.value.equals(value);
+    public AqlOperation() {
+        this.operate = new StringBuffer("");
+    }
+
+    /**
+     * Getter method for property <tt>operate</tt>.
+     * @return property value of operate
+     * @author tantrieuf31
+     */
+    public StringBuffer getOperate() {
+        return operate;
+    }
+
+    /**
+     * Setter method for property <tt>operate</tt>.
+     * @param operate value to be assigned to property operate
+     * @author tantrieuf31
+     */
+    public void setOperate(StringBuffer operate) {
+        this.operate = operate;
     }
 }

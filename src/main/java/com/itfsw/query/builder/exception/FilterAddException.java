@@ -26,7 +26,12 @@ package com.itfsw.query.builder.exception;
  */
 public class FilterAddException extends QueryBuilderException {
     /**
-     * 构造函数
+	 * 
+	 */
+	private static final long serialVersionUID = 8998731045963252178L;
+
+	/**
+     * constructor
      * @param message
      */
     public FilterAddException(String message) {

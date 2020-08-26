@@ -26,7 +26,12 @@ package com.itfsw.query.builder.exception;
  */
 public class ParserAddException extends QueryBuilderException {
     /**
-     * 构造函数
+	 * 
+	 */
+	private static final long serialVersionUID = 396020407316512794L;
+
+	/**
+     * constructor
      * @param message
      */
     public ParserAddException(String message) {
