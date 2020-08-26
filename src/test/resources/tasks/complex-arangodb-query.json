@@ -1,0 +1,53 @@
+{
+  "condition": "OR",
+  "rules": [
+    {
+      "id": "rate",
+      "field": "rate",
+      "type": "integer",
+      "input": "number",
+      "operator": "equal",
+      "value": 22
+    },
+    {
+      "id": "category",
+      "field": "category",
+      "type": "integer",
+      "input": "number",
+      "operator": "equal",
+      "value": 38
+    },
+    {
+      "condition": "AND",
+      "rules": [
+        {
+          "id": "coord",
+          "field": "coord",
+          "type": "string",
+          "operator": "equal",
+          "value": "B.3"
+        },
+        {
+          "condition": "AND",
+          "rules": [
+            {
+              "id": "coord",
+              "field": "coord",
+              "type": "string",
+              "operator": "equal",
+              "value": "A.1"
+            },
+            {
+              "id": "coord",
+              "field": "coord",
+              "type": "string",
+              "operator": "equal",
+              "value": "C.5"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "valid": true
+}

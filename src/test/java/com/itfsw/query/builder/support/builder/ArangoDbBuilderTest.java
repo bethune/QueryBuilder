@@ -42,6 +42,19 @@ public class ArangoDbBuilderTest {
         ArangoDbBuilderFactory factory = new ArangoDbBuilderFactory();
         builder = factory.builder();
     }
+    
+    /**
+     * complex-arangodb-query
+     */
+    @Test
+    public void testComplexArangoQuery() throws IOException {
+        String json = FileHelper.getStringFrom("tasks/complex-arangodb-query.json");
+        ArangoDbQueryResult result = builder.build(json);
+
+       System.out.println(result.getQuery());
+       String expected = " d.rate == 22  OR d.category == 38  OR  ( d.coord == \"B.3\"  AND  ( d.coord == \"A.1\"  AND d.coord == \"C.5\" ) ) ";
+       Assert.assertEquals(expected, result.getQuery());
+    }
 
     /**
      * equal 
