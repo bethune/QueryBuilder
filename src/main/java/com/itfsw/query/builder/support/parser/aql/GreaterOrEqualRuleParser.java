@@ -32,6 +32,6 @@ public class GreaterOrEqualRuleParser extends AbstractArangoQueryRuleParser {
     }
 
     public AqlOperation parse(IRule rule, JsonRuleParser parser) {
-        return new AqlOperation(documentField(rule.getField()).append(" >= ").append(rule.getValue()) );
+        return new AqlOperation(documentField(rule.getField()).append(" >= ").append(rule.getValue()).append(" "));
     }
 }

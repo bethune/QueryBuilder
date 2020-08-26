@@ -45,7 +45,7 @@ public class DefaultGroupParser implements IGroupParser {
 
         // NOT
         if (group.getNot() != null && group.getNot()) {
-            operate.append(" NOT ( ");
+            operate.append("  NOT ");
         }
 
         if (group.getRules().size() > 0) {
@@ -66,10 +66,10 @@ public class DefaultGroupParser implements IGroupParser {
         }
 
         if (group.getRules().size() > 0) {
-            operate.append(" ) ");
+            operate.append(") ");
         }
         if (group.getNot() != null && group.getNot()) {
-            operate.append(" ) ");
+            operate.append(") ");
         }
 
         return new AqlOperation(operate);

@@ -32,6 +32,6 @@ public class NotBeginsWithRuleParser extends AbstractArangoQueryRuleParser {
     }
 
     public AqlOperation parse(IRule rule, JsonRuleParser parser) {
-    	return new AqlOperation(documentField(rule.getField()).append(" NOT LIKE \"").append(rule.getValue()).append("%\"") );
+    	return new AqlOperation(documentField(rule.getField()).append(" NOT LIKE \"").append(rule.getValue()).append("%\" ") );
     }
 }

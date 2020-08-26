@@ -21,7 +21,7 @@ import java.util.List;
 
 import com.itfsw.query.builder.support.builder.ArangoDbBuilder;
 import com.itfsw.query.builder.support.filter.ArangoDbInjectionAttackFilter;
-import com.itfsw.query.builder.support.parser.AbstractSqlRuleParser;
+import com.itfsw.query.builder.support.parser.AbstractArangoQueryRuleParser;
 import com.itfsw.query.builder.support.parser.IRuleParser;
 import com.itfsw.query.builder.support.parser.aql.BeginsWithRuleParser;
 import com.itfsw.query.builder.support.parser.aql.BetweenRuleParser;
@@ -102,7 +102,7 @@ public class ArangoDbBuilderFactory extends AbstractQueryBuilderFactory {
     public ArangoDbBuilder builder() {
         List<IRuleParser> sqlRuleParsers = new ArrayList<>();
         for (IRuleParser parser : ruleParsers) {
-            if (parser instanceof AbstractSqlRuleParser) {
+            if (parser instanceof AbstractArangoQueryRuleParser) {
                 sqlRuleParsers.add(parser);
             }
         }

@@ -32,6 +32,6 @@ public class IsNullRuleParser extends AbstractArangoQueryRuleParser {
     }
 
     public AqlOperation parse(IRule rule, JsonRuleParser parser) {
-        return new AqlOperation( documentField(rule.getField()).append(" == null ") );
+        return new AqlOperation( documentField(rule.getField()).append(" == null") );
     }
 }

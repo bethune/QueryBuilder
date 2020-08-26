@@ -32,6 +32,6 @@ public class IsEmptyRuleParser extends AbstractArangoQueryRuleParser {
     }
 
     public AqlOperation parse(IRule rule, JsonRuleParser parser) {
-        return new AqlOperation(documentField(rule.getField()).append(" == \"\" "));
+        return new AqlOperation(documentField(rule.getField()).append(" == '' "));
     }
 }

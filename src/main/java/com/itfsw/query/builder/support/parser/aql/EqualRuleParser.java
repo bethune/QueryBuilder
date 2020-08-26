@@ -36,9 +36,9 @@ public class EqualRuleParser extends AbstractArangoQueryRuleParser {
     public AqlOperation parse(IRule rule, JsonRuleParser parser) {
         Object value = rule.getValue();
         if(value instanceof String) {
-        	return new AqlOperation(documentField(rule.getField()).append(" == \"").append(value).append("\"") );
+        	return new AqlOperation(documentField(rule.getField()).append(" == \"").append(value).append("\" ") );
         } else {
-        	return new AqlOperation(documentField(rule.getField()).append(" == ").append(value) );
+        	return new AqlOperation(documentField(rule.getField()).append(" == ").append(value).append(" ") );
         }
     }
 }

@@ -35,6 +35,6 @@ public class EndsWithRuleParser extends AbstractArangoQueryRuleParser {
     }
 
     public AqlOperation parse(IRule rule, JsonRuleParser parser) {
-        return new AqlOperation(documentField(rule.getField()).append(" LIKE \"%").append(rule.getValue()).append("\"") );
+        return new AqlOperation(documentField(rule.getField()).append(" LIKE \"%").append(rule.getValue()).append("\" ") );
     }
 }

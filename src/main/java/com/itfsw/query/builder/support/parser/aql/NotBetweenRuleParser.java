@@ -38,8 +38,8 @@ public class NotBetweenRuleParser extends AbstractArangoQueryRuleParser {
 		List<Object> values = (List<Object>) rule.getValue();
 		if (values.size() == 2) {
 			StringBuffer operand = new StringBuffer();
-			operand.append(" d.").append(rule.getField()).append(" < ").append(values.get(0));
-			operand.append(" AND d.").append(rule.getField()).append(" > ").append(values.get(1));
+			operand.append("d.").append(rule.getField()).append(" < ").append(values.get(0));
+			operand.append(" OR d.").append(rule.getField()).append(" > ").append(values.get(1)).append(" ");
 			return new AqlOperation(operand);
 		}
 		return new AqlOperation();

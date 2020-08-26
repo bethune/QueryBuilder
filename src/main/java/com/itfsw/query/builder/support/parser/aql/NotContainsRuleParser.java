@@ -34,7 +34,7 @@ public class NotContainsRuleParser extends AbstractArangoQueryRuleParser {
 
     public AqlOperation parse(IRule rule, JsonRuleParser parser) {
     	StringBuffer operand = documentField(rule.getField());
-    	operand.append(" NOT LIKE \"%").append(rule.getValue()).append("%\"");
+    	operand.append(" NOT LIKE \"%").append(rule.getValue()).append("%\" ");
 		return new AqlOperation(operand);
     }
 }

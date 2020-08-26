@@ -38,7 +38,7 @@ public class BetweenRuleParser extends AbstractArangoQueryRuleParser {
 		List<Object> values = (List<Object>) rule.getValue();
 		if (values.size() == 2) {
 			StringBuffer operand = new StringBuffer();
-			operand.append(" d.").append(rule.getField()).append(" >= ").append(values.get(0));
+			operand.append("d.").append(rule.getField()).append(" >= ").append(values.get(0));
 			operand.append(" AND d.").append(rule.getField()).append(" <= ").append(values.get(1));
 			return new AqlOperation(operand);
 		}

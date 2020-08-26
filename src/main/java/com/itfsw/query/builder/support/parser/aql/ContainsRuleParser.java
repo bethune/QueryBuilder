@@ -34,7 +34,7 @@ public class ContainsRuleParser extends AbstractArangoQueryRuleParser {
 
     public AqlOperation parse(IRule rule, JsonRuleParser parser) {
     	StringBuffer operand = documentField(rule.getField());
-    	operand.append(" LIKE \"%").append(rule.getValue()).append("%\"");
+    	operand.append(" LIKE \"%").append(rule.getValue()).append("%\" ");
 		return new AqlOperation(operand);
     }
 }

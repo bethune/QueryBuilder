@@ -42,6 +42,6 @@ public abstract class AbstractArangoQueryRuleParser implements IRuleParser{
     public abstract AqlOperation parse(IRule rule, JsonRuleParser parser);
     
     protected static StringBuffer documentField(String field) {
-		return new StringBuffer(" d.").append(field);
+		return new StringBuffer("d.").append(field);
 	}
 }
