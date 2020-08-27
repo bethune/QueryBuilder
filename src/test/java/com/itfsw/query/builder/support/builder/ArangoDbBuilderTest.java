@@ -51,7 +51,7 @@ public class ArangoDbBuilderTest {
         ArangoDbQueryResult result = builder.build(json);
 
        System.out.println(result.getQuery());
-       String expected = " d.rate == 22  OR d.category == 38  OR  ( d.coord == \"B.3\"  AND  ( d.coord == \"A.1\"  AND d.coord == \"C.5\" ) ) ";
+       String expected = " ( d.rate == 22  OR d.category == 38  OR  ( d.coord == \"B.3\"  AND  ( d.coord == \"A.1\"  AND d.coord == \"C.5\" ) ) ) ";
        Assert.assertEquals(expected, result.getQuery());
     }
 
@@ -62,7 +62,7 @@ public class ArangoDbBuilderTest {
     public void testOperatorEqual() throws IOException {
         String json = FileHelper.getStringFrom("tasks/operator-equal.json");
         ArangoDbQueryResult result = builder.build(json);
-        Assert.assertEquals(" d.username == \"Mistic\" ", result.getQuery());
+        Assert.assertEquals(" ( d.username == \"Mistic\" ) ", result.getQuery());
     }
 
     /**
@@ -73,7 +73,7 @@ public class ArangoDbBuilderTest {
         String json = FileHelper.getStringFrom("tasks/operator-not-equal.json");
         ArangoDbQueryResult result = builder.build(json);
         
-        Assert.assertEquals(" d.username != \"Mistic\" ", result.getQuery());
+        Assert.assertEquals(" ( d.username != \"Mistic\" ) ", result.getQuery());
     }
 
     /**
@@ -83,7 +83,7 @@ public class ArangoDbBuilderTest {
     public void testOperatorIn() throws IOException {
         String json = FileHelper.getStringFrom("tasks/operator-in.json");
         ArangoDbQueryResult result = builder.build(json);
-        Assert.assertEquals(" d.age IN [ 1, 5, 10 ] ", result.getQuery());
+        Assert.assertEquals(" ( d.age IN [ 1, 5, 10 ] ) ", result.getQuery());
     }
 
     /**
@@ -94,7 +94,7 @@ public class ArangoDbBuilderTest {
         String json = FileHelper.getStringFrom("tasks/operator-not-in.json");
         ArangoDbQueryResult result = builder.build(json);
 
-        Assert.assertEquals(" d.age NOT IN [ 1, 5, 10 ] ", result.getQuery());
+        Assert.assertEquals(" ( d.age NOT IN [ 1, 5, 10 ] ) ", result.getQuery());
     }
 
     /**
@@ -105,7 +105,7 @@ public class ArangoDbBuilderTest {
         String json = FileHelper.getStringFrom("tasks/operator-less.json");
         ArangoDbQueryResult result = builder.build(json);
 
-        Assert.assertEquals(" d.age < 50 ", result.getQuery());
+        Assert.assertEquals(" ( d.age < 50 ) ", result.getQuery());
     }
 
     /**
@@ -116,7 +116,7 @@ public class ArangoDbBuilderTest {
         String json = FileHelper.getStringFrom("tasks/operator-less-or-equal.json");
         ArangoDbQueryResult result = builder.build(json);
         
-        Assert.assertEquals(" d.age <= 50 ", result.getQuery());
+        Assert.assertEquals(" ( d.age <= 50 ) ", result.getQuery());
     }
 
     /**
@@ -127,7 +127,7 @@ public class ArangoDbBuilderTest {
         String json = FileHelper.getStringFrom("tasks/operator-greater.json");
         ArangoDbQueryResult result = builder.build(json);
         
-        Assert.assertEquals(" d.age > 50", result.getQuery());
+        Assert.assertEquals(" ( d.age > 50) ", result.getQuery());
     }
 
     /**
@@ -138,7 +138,7 @@ public class ArangoDbBuilderTest {
         String json = FileHelper.getStringFrom("tasks/operator-greater-or-equal.json");
         ArangoDbQueryResult result = builder.build(json);
         
-        Assert.assertEquals(" d.age >= 50 ", result.getQuery());
+        Assert.assertEquals(" ( d.age >= 50 ) ", result.getQuery());
     }
 
     /**
@@ -149,7 +149,7 @@ public class ArangoDbBuilderTest {
         String json = FileHelper.getStringFrom("tasks/operator-between.json");
         ArangoDbQueryResult result = builder.build(json);
 
-        Assert.assertEquals(" d.age >= 5 AND d.age <= 10", result.getQuery());
+        Assert.assertEquals(" ( d.age >= 5 AND d.age <= 10) ", result.getQuery());
     }
 
     /**
@@ -160,7 +160,7 @@ public class ArangoDbBuilderTest {
         String json = FileHelper.getStringFrom("tasks/operator-not-between.json");
         ArangoDbQueryResult result = builder.build(json);
 
-        Assert.assertEquals(" d.age < 5 OR d.age > 10 ", result.getQuery());
+        Assert.assertEquals(" ( d.age < 5 OR d.age > 10 ) ", result.getQuery());
     }
 
     /**
@@ -171,7 +171,7 @@ public class ArangoDbBuilderTest {
         String json = FileHelper.getStringFrom("tasks/operator-begins-with.json");
         ArangoDbQueryResult result = builder.build(json);
 
-        Assert.assertEquals(" d.username LIKE \"Mistic%\" ", result.getQuery());
+        Assert.assertEquals(" ( d.username LIKE \"Mistic%\" ) ", result.getQuery());
     }
 
     /**
@@ -183,7 +183,7 @@ public class ArangoDbBuilderTest {
         ArangoDbQueryResult result = builder.build(json);
 
         
-        Assert.assertEquals(" d.username NOT LIKE \"Mistic%\" ", result.getQuery());
+        Assert.assertEquals(" ( d.username NOT LIKE \"Mistic%\" ) ", result.getQuery());
     }
 
     /**
@@ -195,7 +195,7 @@ public class ArangoDbBuilderTest {
         ArangoDbQueryResult result = builder.build(json);
 
     
-        Assert.assertEquals(" d.username LIKE \"%Mistic%\" ", result.getQuery());
+        Assert.assertEquals(" ( d.username LIKE \"%Mistic%\" ) ", result.getQuery());
     }
 
     /**
@@ -206,7 +206,7 @@ public class ArangoDbBuilderTest {
         String json = FileHelper.getStringFrom("tasks/operator-not-contains.json");
         ArangoDbQueryResult result = builder.build(json);
 
-        Assert.assertEquals(" d.username NOT LIKE \"%Mistic%\" ", result.getQuery());
+        Assert.assertEquals(" ( d.username NOT LIKE \"%Mistic%\" ) ", result.getQuery());
     }
 
     /**
@@ -217,7 +217,7 @@ public class ArangoDbBuilderTest {
         String json = FileHelper.getStringFrom("tasks/operator-ends-with.json");
         ArangoDbQueryResult result = builder.build(json);
 
-        Assert.assertEquals(" d.username LIKE \"%Mistic\" ", result.getQuery());
+        Assert.assertEquals(" ( d.username LIKE \"%Mistic\" ) ", result.getQuery());
     }
 
     /**
@@ -228,7 +228,7 @@ public class ArangoDbBuilderTest {
         String json = FileHelper.getStringFrom("tasks/operator-not-ends-with.json");
         ArangoDbQueryResult result = builder.build(json);
 
-        Assert.assertEquals(" d.username NOT LIKE \"%Mistic\" ", result.getQuery());
+        Assert.assertEquals(" ( d.username NOT LIKE \"%Mistic\" ) ", result.getQuery());
     }
 
     /**
@@ -239,7 +239,7 @@ public class ArangoDbBuilderTest {
         String json = FileHelper.getStringFrom("tasks/operator-is-empty.json");
         ArangoDbQueryResult result = builder.build(json);
 
-        Assert.assertEquals(" d.username == '' ", result.getQuery());
+        Assert.assertEquals(" ( d.username == '' ) ", result.getQuery());
     }
 
     /**
@@ -250,7 +250,7 @@ public class ArangoDbBuilderTest {
         String json = FileHelper.getStringFrom("tasks/operator-is-not-empty.json");
         ArangoDbQueryResult result = builder.build(json);
 
-        Assert.assertEquals(" d.username != '' ", result.getQuery());
+        Assert.assertEquals(" ( d.username != '' ) ", result.getQuery());
     }
 
     /**
@@ -261,7 +261,7 @@ public class ArangoDbBuilderTest {
         String json = FileHelper.getStringFrom("tasks/operator-is-null.json");
         ArangoDbQueryResult result = builder.build(json);
 
-        Assert.assertEquals(" d.username == null", result.getQuery());
+        Assert.assertEquals(" ( d.username == null) ", result.getQuery());
     }
 
     /**
@@ -272,7 +272,7 @@ public class ArangoDbBuilderTest {
         String json = FileHelper.getStringFrom("tasks/operator-is-not-null.json");
         ArangoDbQueryResult result = builder.build(json);
 
-        Assert.assertEquals(" d.username != null ", result.getQuery());
+        Assert.assertEquals(" ( d.username != null ) ", result.getQuery());
     }
 
     /**
@@ -283,12 +283,12 @@ public class ArangoDbBuilderTest {
         String json = FileHelper.getStringFrom("tasks/condition-and-1.json");
         ArangoDbQueryResult result = builder.build(json);
 
-        Assert.assertEquals(" d.username == \"Mistic\" ", result.getQuery());
+        Assert.assertEquals(" ( d.username == \"Mistic\" ) ", result.getQuery());
 
         json = FileHelper.getStringFrom("tasks/condition-and-more.json");
         result = builder.build(json);
         
-        Assert.assertEquals(" d.username == \"Mistic\"  AND d.age == 10 ", result.getQuery());
+        Assert.assertEquals(" ( d.username == \"Mistic\"  AND d.age == 10 ) ", result.getQuery());
     }
 
     /**
@@ -299,13 +299,13 @@ public class ArangoDbBuilderTest {
         String json = FileHelper.getStringFrom("tasks/condition-or-1.json");
         ArangoDbQueryResult result = builder.build(json);
 
-        Assert.assertEquals(" d.username == \"Mistic\" ", result.getQuery());
+        Assert.assertEquals(" ( d.username == \"Mistic\" ) ", result.getQuery());
 
         json = FileHelper.getStringFrom("tasks/condition-or-more.json");
         result = builder.build(json);
 
       
-        Assert.assertEquals(" d.username == \"Mistic\"  OR d.age == 10 ", result.getQuery());
+        Assert.assertEquals(" ( d.username == \"Mistic\"  OR d.age == 10 ) ", result.getQuery());
     }
 
     /**
@@ -316,11 +316,11 @@ public class ArangoDbBuilderTest {
         String json = FileHelper.getStringFrom("tasks/condition-not-and-1.json");
         ArangoDbQueryResult result = builder.build(json);
 
-        Assert.assertEquals("NOT  ( d.username == \"Mistic\" ) ", result.getQuery());
+        Assert.assertEquals("  NOT  ( d.username == \"Mistic\" ) ) ", result.getQuery());
 
         json = FileHelper.getStringFrom("tasks/condition-not-and-more.json");
         result = builder.build(json);
 
-        Assert.assertEquals("NOT  ( d.username == \"Mistic\"  AND d.age == 10 ) ", result.getQuery());
+        Assert.assertEquals("  NOT  ( d.username == \"Mistic\"  AND d.age == 10 ) ) ", result.getQuery());
     }
 }

@@ -42,13 +42,7 @@ public class ArangoDbBuilder extends AbstractBuilder {
     @Override
     public ArangoDbQueryResult build(String query) throws IOException, ParserNotFoundException {
         AqlOperation result = (AqlOperation) super.parse(query);
-
-        // aql
-        StringBuffer aql = new StringBuffer(result.getOperate());
-        aql.delete(aql.length() - 2, aql.length());
-        aql.delete(0, 2);
-
-        return new ArangoDbQueryResult(query, aql.toString());
+        return new ArangoDbQueryResult(query, result.getOperate().toString());
     }
 
     /**
