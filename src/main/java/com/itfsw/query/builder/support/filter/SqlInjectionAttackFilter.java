@@ -21,7 +21,7 @@ import com.itfsw.query.builder.exception.FilterException;
 import com.itfsw.query.builder.support.model.IRule;
 import com.itfsw.query.builder.support.model.JsonRule;
 import com.itfsw.query.builder.support.model.enums.EnumBuilderType;
-import com.itfsw.query.builder.support.model.enums.EnumDBType;
+import com.itfsw.query.builder.support.model.enums.EnumSqlDbType;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -42,24 +42,24 @@ public class SqlInjectionAttackFilter implements IRuleFilter {
     private HashSet<String> keywords = new HashSet<>();
     private char beginningDelimiter;
     private char endingDelimiter;
-    private EnumDBType dbType;
+    private EnumSqlDbType dbType;
 
     /**
      * 构造函数
      * @param dbType
      */
-    public SqlInjectionAttackFilter(EnumDBType dbType) {
+    public SqlInjectionAttackFilter(EnumSqlDbType dbType) {
         String file;
         this.dbType = dbType;
-        if (EnumDBType.MYSQL.equals(dbType)) {
+        if (EnumSqlDbType.MYSQL.equals(dbType)) {
             this.beginningDelimiter = '`';
             this.endingDelimiter = '`';
             file = "keywords-mysql.txt";
-        } else if (EnumDBType.ORACLE.equals(dbType)) {
+        } else if (EnumSqlDbType.ORACLE.equals(dbType)) {
             this.beginningDelimiter = '"';
             this.endingDelimiter = '"';
             file = "keywords-oracle.txt";
-        } else if (EnumDBType.MS_SQL.equals(dbType)) {
+        } else if (EnumSqlDbType.MS_SQL.equals(dbType)) {
             this.beginningDelimiter = '[';
             this.endingDelimiter = ']';
             file = "keywords-ms-sql.txt";
@@ -86,9 +86,9 @@ public class SqlInjectionAttackFilter implements IRuleFilter {
         if (!jsonRule.isGroup()) {
             IRule rule = jsonRule.toRule();
             String field = rule.getField();
-            if ((EnumDBType.MYSQL.equals(this.dbType) && field.length() > 64) || 
-                (EnumDBType.ORACLE.equals(this.dbType) && field.length() > 30) || 
-                (EnumDBType.MS_SQL.equals(this.dbType) && field.length() > 128)) {
+            if ((EnumSqlDbType.MYSQL.equals(this.dbType) && field.length() > 64) || 
+                (EnumSqlDbType.ORACLE.equals(this.dbType) && field.length() > 30) || 
+                (EnumSqlDbType.MS_SQL.equals(this.dbType) && field.length() > 128)) {
                 // field too long, MYSQL's max length is 64, ORACLE's max length is 30 and MS_SQL's max length is 128
                 throw new FilterException("rule's field is too long for:" + jsonRule);
             }

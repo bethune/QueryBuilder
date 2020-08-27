@@ -16,7 +16,7 @@
 
 package com.itfsw.query.builder.config;
 
-import com.itfsw.query.builder.support.model.enums.EnumDBType;
+import com.itfsw.query.builder.support.model.enums.EnumSqlDbType;
 
 /**
  * ---------------------------------------------------------------------------
@@ -27,14 +27,14 @@ import com.itfsw.query.builder.support.model.enums.EnumDBType;
  * ---------------------------------------------------------------------------
  */
 public class SqlQueryBuilderConfig {
-    private EnumDBType dbType = EnumDBType.MYSQL;   // 数据库类型
+    private EnumSqlDbType dbType = EnumSqlDbType.MYSQL;   // 数据库类型
 
     /**
      * Getter method for property <tt>dbType</tt>.
      * @return property value of dbType
      * @author hewei
      */
-    public EnumDBType getDbType() {
+    public EnumSqlDbType getDbType() {
         return dbType;
     }
 
@@ -43,7 +43,7 @@ public class SqlQueryBuilderConfig {
      * @param dbType value to be assigned to property dbType
      * @author hewei
      */
-    public void setDbType(EnumDBType dbType) {
+    public void setDbType(EnumSqlDbType dbType) {
         this.dbType = dbType;
     }
 }

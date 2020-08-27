@@ -69,7 +69,6 @@ public class JsonRuleParser {
                     return ruleParser.parse(jsonRule, this);
                 }
             }
-
             throw new ParserNotFoundException("Can't found rule parser for:" + jsonRule);
         }
     }

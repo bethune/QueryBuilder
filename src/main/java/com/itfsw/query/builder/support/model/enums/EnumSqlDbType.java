@@ -24,6 +24,6 @@ package com.itfsw.query.builder.support.model.enums;
  * @time:2017/11/3 17:01
  * ---------------------------------------------------------------------------
  */
-public enum EnumDBType {
+public enum EnumSqlDbType {
     DB2, DERBY, H2, HSQL, INFORMIX, MS_SQL, MYSQL, ORACLE, POSTGRE_SQL, SYBASE, HANA
 }
