@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>tech.uspa</groupId>
-    <artifactId>QueryBuilder</artifactId>
+    <artifactId>query-builder</artifactId>
     <version>2.0.0</version>
     <packaging>jar</packaging>
 
@@ -29,7 +29,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>[2.9.10.5,)</version>
+            <version>[2.9.10.6,)</version>
         </dependency>
 
         <!-- MongoDB -->

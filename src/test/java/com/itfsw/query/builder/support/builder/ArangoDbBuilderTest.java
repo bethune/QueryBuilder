@@ -27,11 +27,10 @@ import com.itfsw.query.builder.other.FileHelper;
 import com.itfsw.query.builder.support.model.result.ArangoDbQueryResult;
 
 /**
- * ---------------------------------------------------------------------------
+ * ArangoDb Query Builder Unit Test
  *
- * ---------------------------------------------------------------------------
- * @author: hewei
- * @time:2017/11/2 17:56
+ * @author: tantrieuf31
+ * @time:2020/08/26 15:30
  * ---------------------------------------------------------------------------
  */
 public class ArangoDbBuilderTest {
