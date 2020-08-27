@@ -8,8 +8,8 @@ Maven：
 ```xml
 <dependency>
   <groupId>tech.uspa</groupId>
-  <artifactId>QueryBuilder</artifactId>
-  <version>2.0.0</version>
+  <artifactId>query-builder</artifactId>
+  <version>2.0.1</version>
 </dependency>
 ```
 ---------------------------------------
@@ -58,6 +58,11 @@ public class Test {
         while (cursor.hasNext()){
             System.out.println(cursor.next().get("username"));
         }
+        
+        // ArangoDb Builder 
+        String jsonRules = "{\"condition\":\"OR\",\"rules\":[{\"id\":\"name\",\"field\":\"username\",\"type\":\"string\",\"input\":\"text\",\"operator\":\"equal\",\"value\":\"Mistic\"}],\"not\":false,\"valid\":true}";
+        ArangoDbQueryResult result = new ArangoDbBuilderFactory().builder().build(jsonRules);
+        System.out.println(result.getQuery());
     }
 }
 ```
