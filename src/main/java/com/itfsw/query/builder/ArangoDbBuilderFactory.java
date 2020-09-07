@@ -25,6 +25,7 @@ import com.itfsw.query.builder.support.parser.AbstractArangoQueryRuleParser;
 import com.itfsw.query.builder.support.parser.IRuleParser;
 import com.itfsw.query.builder.support.parser.aql.BeginsWithRuleParser;
 import com.itfsw.query.builder.support.parser.aql.BetweenRuleParser;
+import com.itfsw.query.builder.support.parser.aql.ContainAnyRuleParser;
 import com.itfsw.query.builder.support.parser.aql.ContainsRuleParser;
 import com.itfsw.query.builder.support.parser.aql.DefaultGroupParser;
 import com.itfsw.query.builder.support.parser.aql.EndsWithRuleParser;
@@ -74,6 +75,7 @@ public class ArangoDbBuilderFactory extends AbstractQueryBuilderFactory {
         ruleParsers.add(new EqualRuleParser());
         ruleParsers.add(new NotEqualRuleParser());
         ruleParsers.add(new InRuleParser());
+        ruleParsers.add(new ContainAnyRuleParser());
         ruleParsers.add(new NotInRuleParser());
         ruleParsers.add(new LessRuleParser());
         ruleParsers.add(new LessOrEqualRuleParser());

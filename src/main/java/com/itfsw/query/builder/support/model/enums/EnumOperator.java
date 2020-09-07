@@ -28,6 +28,7 @@ public enum EnumOperator {
     EQUAL("equal"),
     NOT_EQUAL("not_equal"),
     IN("in"),
+    CONTAINS_ANY("contains_any"),
     NOT_IN("not_in"),
     LESS("less"),
     LESS_OR_EQUAL("less_or_equal"),
