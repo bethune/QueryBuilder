@@ -37,20 +37,28 @@ public class ContainAnyRuleParser extends AbstractArangoQueryRuleParser {
 		StringBuffer operate = documentField(rule.getField());
 		operate.append(" ANY IN [ ");
 
-		List<Object> value = (List<Object>) rule.getValue();
+		Object ruleValue = rule.getValue();
+		
+		if(ruleValue instanceof String) {
+			operate.append("'").append(ruleValue).append("'");
+		}
+		else {
+			List<Object> value = (List<Object>) ruleValue;
 
-		for (int i = 0; i < value.size(); i++) {
-			Object val = value.get(i);
-			if(val instanceof String) {
-				operate.append("'").append(val).append("'");
-			} else {
-				operate.append(val);
-			}
-			
-			if (i < value.size() - 1) {
-				operate.append(", ");
+			for (int i = 0; i < value.size(); i++) {
+				Object val = value.get(i);
+				if(val instanceof String) {
+					operate.append("'").append(val).append("'");
+				} else {
+					operate.append(val);
+				}
+				
+				if (i < value.size() - 1) {
+					operate.append(", ");
+				}
 			}
 		}
+		
 
 		operate.append(" ] ");
 
