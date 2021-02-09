@@ -9,7 +9,7 @@ Maven：
 <dependency>
   <groupId>tech.uspa</groupId>
   <artifactId>query-builder</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.3</version>
 </dependency>
 ```
 ---------------------------------------
